@@ -7,7 +7,7 @@ app.get('/say', function(req,res) {
         let word = req.query.keyword
         axios.get('https://objs682dpd.execute-api.us-east-1.amazonaws.com/default/myFunction?keyword='+word)
         .then(response =>{
-                res.statusCode = 200;
+                res.statusCode = response.statusCode;
                 res.send(response.data);
         })
         .catch(err=>{
